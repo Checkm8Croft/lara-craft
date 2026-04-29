@@ -2,6 +2,7 @@ package net.checkm8ra1n
 
 import net.checkm8ra1n.item.SmallMedikitItem
 import net.checkm8ra1n.item.LargeMedikitItem
+import net.checkm8ra1n.item.PistolsItem
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -19,6 +20,11 @@ object ModItems {
         Registries.ITEM,
         Identifier.of("lara-craft", "large_medikit"),
         LargeMedikitItem(Item.Settings().maxCount(8))
+    )
+    val PISTOLS = Registry.register(
+        Registries.ITEM,
+        Identifier.of("lara-craft", "pistols"),
+        PistolsItem(Item.Settings().maxCount(1))
     )
 
     fun register() {
