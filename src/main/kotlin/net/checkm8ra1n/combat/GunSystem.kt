@@ -27,38 +27,41 @@ object GunSystem {
         damage: Float,
         sound: SoundEvent,
         cooldownMs: Long,
-        pitch: Float = 1.0f
-    ) {
+        pitch: Float = 1.0f,
+        spread: Double = 0.0
+    ): Boolean {
 
-        // ❌ evita doppio lato
-        if (world.isClient) return
+        if (world.isClient) return false
+        if (!canShoot(cooldownMs)) return false
 
-        // ⏱ cooldown
-        if (!canShoot(cooldownMs)) return
+        val start = player.eyePos
 
-        // 🎯 direzione sparo (centro camera)
-        val start: Vec3d = player.eyePos
-        val direction: Vec3d = player.rotationVector.multiply(range)
-        val end: Vec3d = start.add(direction)
+        val baseDir = player.rotationVector
 
-        // 📦 “linea di fuoco” ingrandita per non perdere hit ravvicinati
+        val right = baseDir.crossProduct(Vec3d(0.0, 1.0, 0.0)).normalize()
+
+        val spreadOffset = right.multiply(spread)
+
+        val direction = baseDir.add(spreadOffset).normalize().multiply(range)
+
+        val end = start.add(direction)
+
         val box = Box(start, end).expand(0.5)
 
-        // 🔍 trova entità lungo il colpo
         val entities = world.getOtherEntities(player, box)
 
         val target = entities
             .filterIsInstance<LivingEntity>()
             .minByOrNull { it.squaredDistanceTo(player) }
 
-        if (target != null) {
-            target.damage(
-                world.damageSources.playerAttack(player),
-                damage
-            )
-        }
+        // ❌ niente hit = sparo NON valido
+        if (target == null) return false
 
-        // 🔊 suono sparo
+        target.damage(
+            world.damageSources.playerAttack(player),
+            damage
+        )
+
         world.playSound(
             null,
             player.blockPos,
@@ -69,5 +72,6 @@ object GunSystem {
         )
 
         registerShot()
+        return true
     }
 }

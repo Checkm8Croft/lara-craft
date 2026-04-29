@@ -1,7 +1,15 @@
 {
   "pistols": {
+    "sounds": [{ "name": "lara-craft:pistols" }]
+  },
+  "magnums": {
+    "sounds": [{ "name": "lara-craft:magnums" }]
+  },
+  "shotgun": {
     "sounds": [
-      "lara-craft:pistols"
+      {
+        "name": "lara-craft:shotgun"
+      }
     ]
   }
 }
