@@ -11,5 +11,12 @@
         "name": "lara-craft:shotgun"
       }
     ]
+  },
+  "uzis": {
+    "sounds": [
+      {
+        "name": "lara-craft:uzis"
+      }
+    ]
   }
 }

@@ -17,10 +17,11 @@ This mod brings a small set of iconic survival and combat elements into Minecraf
 - Pistols (fast and reliable)
 - Magnum Pistols (high damage, slower fire rate)
 - Shotgun (close-range burst damage)
+- Uzis (rapid-fire submachine guns)
 
 ### 💣 Ammo System
 - Each weapon uses its own ammo type
-- Ammo is required to fire weapons
+- Ammo is required to fire weapons (Magnums, Shotgun, Uzis)
 
 ---
 
@@ -46,6 +47,11 @@ Use `/give` to obtain items:
 ```mcfunction
 /give @p lara-craft:pistols
 /give @p lara-craft:magnums
+/give @p lara-craft:magnum_ammo
 /give @p lara-craft:shotgun
+/give @p lara-craft:shotgun_ammo
+/give @p lara-craft:uzis
+/give @p lara-craft:uzi_ammo
 /give @p lara-craft:small_medikit
 /give @p lara-craft:large_medikit
+```

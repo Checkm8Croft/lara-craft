@@ -61,4 +61,21 @@ object ModItems {
             SHOTGUN_AMMO
         )
     )
+
+    // 💣 UZI AMMO
+    val UZI_AMMO = Registry.register(
+        Registries.ITEM,
+        Identifier.of("lara-craft", "uzi_ammo"),
+        UziAmmo(Item.Settings())
+    )
+
+    // 🔫 UZIS
+    val UZIS = Registry.register(
+        Registries.ITEM,
+        Identifier.of("lara-craft", "uzis"),
+        UzisItem(
+            Item.Settings().maxCount(1),
+            UZI_AMMO
+        )
+    )
 }

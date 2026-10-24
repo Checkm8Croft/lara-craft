@@ -57,6 +57,8 @@ object GunSystem {
         // ❌ niente hit = sparo NON valido
         if (target == null) return false
 
+        target.timeUntilRegen = 0
+
         target.damage(
             world.damageSources.playerAttack(player),
             damage
