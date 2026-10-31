@@ -1,9 +1,15 @@
 package net.checkm8ra1n
 
 import net.checkm8ra1n.item.*
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.minecraft.item.Item
+import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
+import net.minecraft.registry.RegistryKey
+import net.minecraft.registry.RegistryKeys
+import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
 object ModItems {
@@ -91,5 +97,33 @@ object ModItems {
         Registries.ITEM,
         Identifier.of("lara-craft", "lit_flare"),
         LitFlareItem(Item.Settings().maxCount(1).maxDamage(LitFlareItem.MAX_BURN_TICKS))
+    )
+
+    // 🧭 CREATIVE INVENTORY TAB
+    val LARA_CRAFT_GROUP_KEY: RegistryKey<ItemGroup> = RegistryKey.of(
+        RegistryKeys.ITEM_GROUP,
+        Identifier.of("lara-craft", "general")
+    )
+
+    val LARA_CRAFT_GROUP: ItemGroup = Registry.register(
+        Registries.ITEM_GROUP,
+        LARA_CRAFT_GROUP_KEY,
+        FabricItemGroup.builder()
+            .icon { ItemStack(PISTOLS) }
+            .displayName(Text.translatable("itemGroup.lara-craft"))
+            .entries { _, entries ->
+                entries.add(SMALL_MEDIKIT)
+                entries.add(LARGE_MEDIKIT)
+                entries.add(PISTOLS)
+                entries.add(MAGNUMS)
+                entries.add(MAGNUM_AMMO)
+                entries.add(SHOTGUN)
+                entries.add(SHOTGUN_AMMO)
+                entries.add(UZIS)
+                entries.add(UZI_AMMO)
+                entries.add(FLARE)
+                entries.add(LIT_FLARE)
+            }
+            .build()
     )
 }
