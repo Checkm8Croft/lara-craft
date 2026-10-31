@@ -18,5 +18,19 @@
         "name": "lara-craft:uzis"
       }
     ]
+  },
+  "flare_ignite": {
+    "sounds": [
+      {
+        "name": "lara-craft:flare_ignite"
+      }
+    ]
+  },
+  "flare_burn": {
+    "sounds": [
+      {
+        "name": "lara-craft:flare_burn"
+      }
+    ]
   }
 }

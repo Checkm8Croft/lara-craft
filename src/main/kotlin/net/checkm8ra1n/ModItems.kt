@@ -78,4 +78,18 @@ object ModItems {
             UZI_AMMO
         )
     )
+
+    // 🧨 FLARE (Unlit)
+    val FLARE = Registry.register(
+        Registries.ITEM,
+        Identifier.of("lara-craft", "flare"),
+        FlareItem(Item.Settings().maxCount(64))
+    )
+
+    // 🔥 LIT FLARE (Active)
+    val LIT_FLARE = Registry.register(
+        Registries.ITEM,
+        Identifier.of("lara-craft", "lit_flare"),
+        LitFlareItem(Item.Settings().maxCount(1).maxDamage(LitFlareItem.MAX_BURN_TICKS))
+    )
 }

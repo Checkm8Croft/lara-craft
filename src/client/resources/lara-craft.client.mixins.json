@@ -3,7 +3,8 @@
 	"package": "net.checkm8ra1n.client.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+		"ExampleClientMixin",
+		"ItemRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

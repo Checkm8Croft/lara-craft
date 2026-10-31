@@ -19,6 +19,12 @@ This mod brings a small set of iconic survival and combat elements into Minecraf
 - Shotgun (close-range burst damage)
 - Uzis (rapid-fire submachine guns)
 
+### 🧨 Exploration & Lighting
+- **Flares (Bengala)**: Iconic Tomb Raider 2 flare. 
+  - 2D sprite in inventory & hotbar.
+  - Full 3D model in hand (with dynamic light, sparks, smoke and original audio).
+  - Burns for 40 seconds, works underwater just like TR2!
+
 ### 💣 Ammo System
 - Each weapon uses its own ammo type
 - Ammo is required to fire weapons (Magnums, Shotgun, Uzis)
@@ -52,6 +58,7 @@ Use `/give` to obtain items:
 /give @p lara-craft:shotgun_ammo
 /give @p lara-craft:uzis
 /give @p lara-craft:uzi_ammo
+/give @p lara-craft:flare
 /give @p lara-craft:small_medikit
 /give @p lara-craft:large_medikit
 ```
